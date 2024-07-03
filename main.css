@@ -1,13 +1,14 @@
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #181818;
-  color: #fff;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  ;
+  background-color: #d4d1d1f2;
+  color:#083D77;
 }
 
 nav {
   height: 80px;
-  background-color: #181818;
+  background-color: #c9ef4fb7;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,17 +16,19 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
+  font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .logo h4 {
   margin: 0;
-  color: #fff;
+  color: #DA4167;
 }
 
 .nav {
   list-style: none;
   display: flex;
   gap: 20px;
+  background-color: #000000;
 }
 
 .nav-item {
@@ -33,7 +36,7 @@ nav {
 }
 
 .nav a {
-  color: white;
+  color:#DA4167;
   text-decoration: none;
 }
 
@@ -47,14 +50,14 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('src/images/361709.jpg');
+  background-image: url('src/images/home_page_1.png');
   background-size: cover;
   background-position: center;
   padding: 20px;
 }
 
 .main-banner {
-  background-color: rgba(0, 0, 0, 0.836);
+  background-color: rgba(255, 99, 99, 0.836);
   padding: 20px;
   border-radius: 10px;
   text-align: center;
@@ -83,7 +86,8 @@ nav {
 }
 
 footer {
-  background-color: #181818;
+  background-color: #c66060;
   text-align: center;
   padding: 10px 0;
+  font-family:Georgia, 'Times New Roman', Times, serif;
 }
