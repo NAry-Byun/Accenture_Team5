@@ -32,29 +32,42 @@ function App() {
     };
 
     const createTodo = async () => {
-        await client.models.Todo.create({
-            motivation: motivations,
-            taskNumber: taskNumber,
-            interests: interests
-        });
-    
+        try {
+             const todoContent = JSON.stringify({
+                motivations: motivations,
+                taskNumber: taskNumber,
+                interests: interests
+            });
+
+            await client.models.Todo.create({
+                content: todoContent
+            });
+
+            fetchTodos();
+        } catch (error) {
+            console.error('Error creating Todo:', error);
+            // Handle error appropriately
+        }
     };
 
     const fetchTodos = async () => {
-        const { data: items, errors } = await client.models.Todo.list();
-        setTodos(items);
+        const { data: todos, errors } = await client.models.Todo.list();
+        console.log(errors);
+        setTodos(todos);
+
         console.log(todos);
     };
 
     useEffect(() => {
         fetchTodos();
+        console.log(todos);
 
     }, []);
 
 
     return (
         <Authenticator>
-            {({ signOut, user }) => (
+            {({ signOut }) => (
                 <main>
                     <Flex as="form" direction="column" width="50rem">
                         <h1>Some questions to get to know you better</h1>
@@ -63,9 +76,28 @@ function App() {
                             <h2>What are you hoping to gain from this gameplay?</h2>
 
                             <Flex>
-                                <CheckboxField label="Maintain personal hygiene" value="maintain personal hygiene" onChange={handleMotivationsChange} style={{ color: 'white' }} /><br />
-                                <CheckboxField label="Stay fit and exercise" value="stay fit and exercise" onChange={handleMotivationsChange} style={{ color: 'white' }} /><br />
-                                <CheckboxField label="Stay tidy and clean" value="stay tidy and clean" onChange={handleMotivationsChange} style={{ color: 'white' }} /> <br />
+                                <CheckboxField
+                                    label="Maintain personal hygiene"
+                                    value="maintain personal hygiene"
+                                    name="maintain personal hygiene"
+                                    onChange={handleMotivationsChange}
+                                />
+                                <br />
+                                <CheckboxField
+                                    label="Stay fit and exercise"
+                                    value="stay fit and exercise"
+                                    name="stay fit and exercise"
+                                    onChange={handleMotivationsChange}
+                                />
+                                <br />
+                                <CheckboxField
+                                    label="Stay tidy and clean"
+                                    value="stay tidy and clean"
+                                    name="stay tidy and clean"
+                                    onChange={handleMotivationsChange}
+                                />
+                                <br />
+
                             </Flex>
                         </div>
 
@@ -79,13 +111,14 @@ function App() {
 
                             <Flex>
                                 {['animals', 'music', 'tech', 'sports', 'space', 'dinosaurs', 'fantasy', 'city', 'nature'].map(interest => (
-                                    <CheckboxField style={{ color: 'white' }} key={interest} label={interest} value={interest} onChange={handleInterestsChange} />
+                                    <CheckboxField name={interest } key={interest} label={interest} value={interest} onChange={handleInterestsChange} />
                                 ))}
                             </Flex>
                         </div>
 
                         <Button onClick={createTodo}>Give me my tasks!</Button>
                     </Flex>
+                    <Button onClick={signOut}>Sign out</Button>
                 </main>
             )}
         </Authenticator>

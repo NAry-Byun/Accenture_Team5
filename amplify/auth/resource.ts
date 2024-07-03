@@ -13,9 +13,9 @@ export const auth = defineAuth({
 
 const schema = a.schema({
     Todo: a.model({
-        motivation: a.string().array(),
-        taskNumber: a.integer(),
-        interests: a.string().array()
+        id: a.string(),
+        content: a.string(),
+        owner: a.string()
     })
         .authorization(allow => [allow.owner()]),
 });
