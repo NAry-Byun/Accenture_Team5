@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    ;
+    background-color: #d4d1d1f2;
+    color:#083D77;
+  }
+  
+  nav {
+    height: 80px;
+    background-color: #c9ef4fb7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  .logo h4 {
+    margin: 0;
+    color: #DA4167;
+  }
+  
+  .nav {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    background-color: #000000;
+  }
+  
+  .nav-item {
+    font-weight: 700;
+  }
+  
+  .nav a {
+    color:#DA4167;
+    text-decoration: none;
+  }
+  
+  .nav a:hover, .nav a.active {
+    color: #ff6384;
+  }
+  
+  
+  .main-content {
+    height: calc(100vh - 160px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('src/images/home_page_1.png');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+  }
+  
+  .main-banner {
+    background-color: rgba(255, 99, 99, 0.836);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .main-banner h1 {
+    font-size: 3em;
+    color: #ff6384;
+  }
+  
+  .main-banner p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .main-banner a {
+    padding: 10px 20px;
+    background-color: #ff6384;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .main-banner a:hover {
+    background-color: #ff8fa1;
+  }
+  
+  footer {
+    background-color: #c66060;
+    text-align: center;
+    padding: 10px 0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+  }
+  
