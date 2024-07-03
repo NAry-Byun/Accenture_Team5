@@ -33,7 +33,7 @@ function App() {
 
     const createTodo = async () => {
         try {
-             const todoContent = JSON.stringify({
+            const todoContent = JSON.stringify({
                 motivations: motivations,
                 taskNumber: taskNumber,
                 interests: interests
@@ -68,7 +68,9 @@ function App() {
     return (
         <Authenticator>
             {({ signOut }) => (
+
                 <main>
+                    <Button onClick={signOut} style={{ position: 'absolute', top: '10px', right: '10px', zIndex: '1000', color: 'white' }}>Sign Out</Button>
                     <Flex as="form" direction="column" width="50rem">
                         <h1>Some questions to get to know you better</h1>
 
@@ -103,7 +105,7 @@ function App() {
 
                         <div className="question">
                             <h2>How many tasks would you like to work on a day?</h2>
-                            <Input style={{ color: 'white' }} type="number" id="taskNumber" min="1" max="10" value={taskNumber} width="10rem" onChange={handleTaskNumberChange} />
+                            <Input type="number" id="taskNumber" min="1" max="10" value={taskNumber} width="10rem" onChange={handleTaskNumberChange} />
                         </div>
 
                         <div className="question">
@@ -111,14 +113,16 @@ function App() {
 
                             <Flex>
                                 {['animals', 'music', 'tech', 'sports', 'space', 'dinosaurs', 'fantasy', 'city', 'nature'].map(interest => (
-                                    <CheckboxField name={interest } key={interest} label={interest} value={interest} onChange={handleInterestsChange} />
+                                    <CheckboxField name={interest} key={interest} label={interest} value={interest} onChange={handleInterestsChange} />
                                 ))}
                             </Flex>
                         </div>
 
-                        <Button onClick={createTodo}>Give me my tasks!</Button>
+                   
+                            <Button onClick={createTodo}>Give me my tasks!</Button>
+            
                     </Flex>
-                    <Button onClick={signOut}>Sign out</Button>
+
                 </main>
             )}
         </Authenticator>
