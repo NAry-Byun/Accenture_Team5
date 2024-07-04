@@ -70,7 +70,7 @@ function App() {
             {({ signOut }) => (
                 <main>
                     <Flex as="form" direction="column" width="50rem">
-                        <h1>Some questions to get to know you better</h1>
+                        <h1>Help us get to know you better</h1>
 
                         <div className="question">
                             <h2>What are you hoping to gain from this gameplay?</h2>
@@ -84,9 +84,9 @@ function App() {
                                 />
                                 <br />
                                 <CheckboxField
-                                    label="Stay fit and exercise"
-                                    value="stay fit and exercise"
-                                    name="stay fit and exercise"
+                                    label="Get fit and exercise"
+                                    value="get fit and exercise"
+                                    name="get fit and exercise"
                                     onChange={handleMotivationsChange}
                                 />
                                 <br />

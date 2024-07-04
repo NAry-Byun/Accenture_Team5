@@ -12,12 +12,12 @@ export const auth = defineAuth({
 });
 
 const schema = a.schema({
-    Todo: a.model({
-        id: a.string(),
-        content: a.string(),
-        owner: a.string()
-    })
-        .authorization(allow => [allow.owner()]),
+  Todo: a.model({
+    id: a.string(),
+    content: a.string(),
+    owner: a.string(),
+    isDone: a.boolean(),  // Added new field
+  }).authorization((allow) => [allow.owner()]),
 });
 
 // Used for code completion / highlighting when making requests from frontend
@@ -25,9 +25,9 @@ export type Schema = ClientSchema<typeof schema>;
 
 // defines the data resource to be deployed
 export const data = defineData({
-    schema,
-    authorizationModes: {
-        defaultAuthorizationMode: 'apiKey',
-        apiKeyAuthorizationMode: { expiresInDays: 30 }
-    }
+  schema,
+  authorizationModes: {
+    defaultAuthorizationMode: 'apiKey',
+    apiKeyAuthorizationMode: { expiresInDays: 30 },
+  },
 });
