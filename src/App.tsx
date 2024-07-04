@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Schema } from "../amplify/data/resource";
+import { Schema } from "../amplify/auth/resource";
 import { generateClient } from "aws-amplify/data";
 import { Authenticator } from '@aws-amplify/ui-react';
 import { CheckboxField, Input, Button, Flex } from '@aws-amplify/ui-react';
