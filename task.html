@@ -1,34 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Input to Buttons</title>
+<style>
+    body {
+        background-color: black;
+        color: rgb(0, 0, 0);
+        font-family: Arial, sans-serif;
+    }
 
-  <head>
+    button {
+        display: block;
+        margin: 10px;
+        padding: 10px;
+        font-size: 16px;
+        background-color:transparent;
+        color: black;
+        border: 2px solid;
+        cursor: pointer;
+    }
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <title>ColourQuest</title>
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
+    .hidden {
+        display: none;
+    }
 
-  </head>
+    label {
+        margin-bottom: 5px;
+    }
 
-  <body>
-    <nav class="main-nav">
-      <a href="main.html" class="logo">
-        <h1>ColourQuest</h1>
-      </a>
-      <ul class="nav">
-        <li class="nav-item"><a href="main.html">Home</a></li>
-        <li class="nav-item"><a href="task.html" class="active">Today Task</a></li>
-        <li class="nav-item"><a href="index.html">SignUp|SignIn</a></li>
-        <img src="src/images/stream-05.jpg" alt="Profile Image" style="border-radius: 50%; width: 30px; height: 30px;"></a></li>
-      </ul>
-    </nav>
-     
-    <footer>
-      <p>Copyright © 2024 ColourQuest Company. All rights reserved.</p>
-    </footer>
-    <script type="module" src="/src/Tasks.tsx"></script>
-  </body>
+    input {
+        padding: 5px;
+        font-size: 16px;
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+    }
 
+    #inputContainer {
+        margin-top: 20px;
+    }
+
+    #buttonContainer {
+        margin-top: 20px;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    #gridContainer {
+        display: none;
+        margin-top: 20px;
+        margin-left: 20px;
+        border: 0px solid black;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0px;
+        width: 800px;
+        height: 500px;
+    }
+
+    .gridItem {
+        background-color: transparent;
+        border: 0px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: black;
+    }
+
+    .gridItem img {
+        display: none;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+
+    .reset-button {
+        background-color: red;
+        color: white;
+        border: 2px solid white;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        display: block;
+        margin: 10px auto;
+    }
+  main {
+  height: 80vh;
+  background-color: black;
+  background-image: url(src/images/background.png);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: bisque;
+}
+
+nav {
+  height: 80px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+
+.nav {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  font-weight: 700;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav a:hover, .nav a.active {
+  color: #ff6384;
+}
+    .finish-button {
+        display: block;
+        margin: 10px;
+        padding: 10px;
+        font-size: 16px;
+        background-color: black;
+        color: white;
+        border: 2px solid;
+        cursor: pointer;
+    }
+
+</style>
+</head>
+<body>
+  <nav class="main-nav">
+    <a href="main.html" class="logo">
+      <h4>ColourQuest</h4>
+    </a>
+    <ul class="nav">
+      <li class="nav-item"><a href="main.html" class="active">Home</a></li>
+      <li class="nav-item"><a href="task.html">Today Task</a></li>
+      <li class="nav-item"><a href="index.html">SignUp/SignIn</a></li>
+      <img src="src/images/stream-05.jpg" alt="Profile Image" style="border-radius: 50%; width: 30px; height: 30px;"></a></li>
+    </ul>
+  </nav><main><div id="inputContainer">
+    <div id="input1Section">
+        <label for="input1">Enter Task Here:</label>
+        <input type="text" id="input1"><br>
+        <button onclick="handleInput(1)">Submit</button>
+        <button onclick="handleFinish(1)">Finish</button>
+        <p>To do:</p>
+    </div>
+    <div id="input2Section" class="hidden">
+        <label for="input2">Enter Task Here:</label>
+        <input type="text" id="input2"><br>
+        <button onclick="handleInput(2)">Submit</button>
+        <button onclick="handleFinish(2)">Finish</button>
+        <p>To do:</p>
+    </div>
+    <div id="input3Section" class="hidden">
+        <label for="input3">Enter Task Here:</label>
+        <input type="text" id="input3"><br>
+        <button onclick="handleInput(3)">Submit</button>
+        <button onclick="handleFinish(3)">Finish</button>
+        <p>To do:</p>
+    </div>
+    <div id="input4Section" class="hidden">
+        <label for="input4">Enter Task Here:</label>
+        <input type="text" id="input4"><br>
+        <button onclick="handleInput(4)">Submit</button>
+        <button onclick="handleFinish(4)">Finish</button>
+        <p>To do:</p>
+    </div>
+    <div id="input5Section" class="hidden">
+        <label for="input5">Enter Task Here:</label>
+        <input type="text" id="input5"><br>
+        <button onclick="handleInput(5)">Submit</button>
+        <button onclick="handleFinish(5)">Finish</button>
+        <p>To do:</p>
+    </div>
+</div>
+
+<div id="buttonContainer"></div>
+
+<div id="gridContainer">
+    <div class="gridItem" id="gridItem1"><img id="img1" src="src/images/1st.jpg" alt="Image 1"></div>
+    <div class="gridItem" id="gridItem2"><img id="img2" src="src/images/2nd.jpg" alt="Image 2"></div>
+    <div class="gridItem" id="gridItem3"><img id="img3" src="src/images/3rd.jpg" alt="Image 3"></div>
+    <div class="gridItem" id="gridItem4"><img id="img4" src="src/images/4th.jpg" alt="Image 4"></div>
+</div></main>
+
+    
+
+    <script>
+        var currentInput = 1;
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function handleInput(current) {
+            var inputValue = document.getElementById(`input${current}`).value;
+            var button = document.createElement('button');
+            button.textContent = inputValue;
+            
+            // Generate random color for text and border
+            var color = getRandomColor();
+            
+            button.style.borderColor = color;
+            button.style.color = color;
+            
+            // Set black fill color
+            button.style.backgroundColor = 'transparent';
+            
+            button.onclick = function() {
+                // Unhide the corresponding image in the grid
+                document.getElementById(`img${current}`).style.display = 'block';
+            };
+            
+            document.getElementById(`input${current}Section`).classList.add('hidden');
+            document.getElementById('buttonContainer').appendChild(button);
+
+            currentInput++;
+
+            if (currentInput <= 5) {
+                document.getElementById(`input${currentInput}Section`).classList.remove('hidden');
+            // } else {
+            //     document.getElementById('inputContainer').style.display = 'none'; // Hide input sections when done
+            //     document.getElementById('gridContainer').style.display = 'grid'; // Show the grid
+                
+                // Show reset button
+                // showResetButton();
+            }
+        }
+
+        function handleFinish(current) {
+
+            document.getElementById('inputContainer').style.display = 'none'; // Hide input sections when done
+            document.getElementById('gridContainer').style.display = 'grid'; // Show the grid
+                
+            // Show reset button
+            showResetButton(); 
+        }
+
+        function showResetButton() {
+            var resetButton = document.createElement('button');
+            resetButton.textContent = 'Reset';
+            resetButton.className = 'reset-button';
+            resetButton.onclick = resetAll;
+            document.body.appendChild(resetButton);
+        }
+
+        function resetAll() {
+            currentInput = 1;
+
+            // Reset inputs
+            document.getElementById('input1').value = '';
+            document.getElementById('input2').value = '';
+            document.getElementById('input3').value = '';
+            document.getElementById('input4').value = '';
+            document.getElementById('input5').value = '';
+
+            // Show input container and first input section
+            document.getElementById('inputContainer').style.display = 'block';
+            document.getElementById('input1Section').classList.remove('hidden');
+            document.getElementById('input2Section').classList.add('hidden');
+            document.getElementById('input3Section').classList.add('hidden');
+            document.getElementById('input4Section').classList.add('hidden');
+            document.getElementById('input5Section').classList.add('hidden');
+
+            // Remove buttons
+            document.getElementById('buttonContainer').innerHTML = '';
+
+            // Hide grid and images
+            document.getElementById('gridContainer').style.display = 'none';
+            document.querySelectorAll('.gridItem img').forEach(function(img) {
+                img.style.display = 'none';
+            });
+
+            // Remove reset button
+            document.querySelector('.reset-button').remove();
+        }
+    </script>
+</body>
+<footer>
+  <p></p>
+</footer>
 </html>
+
