@@ -63,7 +63,7 @@ function App() {
         console.log(todos);
         const lastElement = todos[todos.length - 1];
         console.log(lastElement);
-        const contentObj = JSON.parse(lastElement.content);
+        const contentObj = JSON.parse(lastElement.content!);
         const { motivations, taskNumber, interests } = contentObj;
         setshowMotivations(motivations);
         setshowTaskNumber(taskNumber);
